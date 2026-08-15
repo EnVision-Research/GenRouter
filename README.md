@@ -23,7 +23,7 @@ _**[Harold H. Chen](https://haroldchen19.github.io/)<sup>1,2*</sup>, [Zhiyu Hou]
 
 
 <div align="center">
-<img src="assets/Figure1_00.png" width="70%">
+<img src="assets/Figure1_00.png" width="60%">
 <br>
 </div>
 
@@ -63,7 +63,7 @@ conda activate genrouter
 OneIG and WISE use additional isolated environments documented in their
 benchmark setup guides.
 
-## Model Setup
+## 📟 Model Setup
 
 Download the shared local models to the paths expected by
 `scripts/services/` and `scripts/serve.sh`:
