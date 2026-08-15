@@ -1,0 +1,32 @@
+benchmark: artimuse
+
+paths:
+  official_root: eval/artimuse/ArtiMuse
+  prompts: eval/artimuse/prompts.jsonl
+  output_root: data/benchmarks/artimuse
+
+protocol:
+  cold_start_size: 10
+  batch_size: 50
+
+official:
+  source: https://github.com/thunderbolt215/ArtiMuse.git
+  revision: 750d980b6b7e9d99da60a302dcdbcab14e01003f
+
+services:
+  z_image: http://127.0.0.1:8010/
+  qwen_image: http://127.0.0.1:8009/
+  qwen_image_edit: http://127.0.0.1:8008/
+  task_signature: http://127.0.0.1:8011/v1
+
+models:
+  z_image: Z-Image-Turbo
+  qwen_image: Qwen-Image-2512
+  qwen_image_edit: Qwen-Image-Edit-2511
+  task_signature: Qwen3.5-4B
+  judge: models/ArtiMuse
+
+evaluator:
+  python: python
+  command_timeout_seconds: 3600
+  device: cuda:0

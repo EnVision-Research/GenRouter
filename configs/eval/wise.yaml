@@ -1,0 +1,32 @@
+benchmark: wise
+
+paths:
+  official_root: eval/wise/wise
+  output_root: data/benchmarks/wise
+
+protocol:
+  cold_start_size: 10
+  batch_size: 50
+
+official:
+  source: https://github.com/PKU-YuanGroup/WISE.git
+  revision: 09b5539d64681bf11102fc5c87e63a387beaf71d
+
+services:
+  z_image: http://127.0.0.1:8010/
+  qwen_image: http://127.0.0.1:8009/
+  qwen_image_edit: http://127.0.0.1:8008/
+  task_signature: http://127.0.0.1:8011/v1
+
+models:
+  z_image: Z-Image-Turbo
+  qwen_image: Qwen-Image-2512
+  qwen_image_edit: Qwen-Image-Edit-2511
+  task_signature: Qwen3.5-4B
+  judge: Qwen3.5-35B-A3B
+
+evaluator:
+  command_timeout_seconds: 3600
+  dataset: data_verified/merge.json
+  judge_base_url: http://127.0.0.1:8000/v1
+  max_workers: 8

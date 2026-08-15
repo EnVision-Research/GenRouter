@@ -1,0 +1,16 @@
+# Prompt-engineering skill bank used by SkillQuery.
+skills:
+  enabled: true
+  # Maximum number of full skill documents loaded for one request.
+  max_skills: 2
+  skills_dir: src/genrouter/knowledge/skills
+  # Names map directly to Markdown filenames under skills_dir.
+  names:
+    - spatial_layout
+    - aesthetic_drawing
+    - text_rendering
+    - creative_drawing
+    - anatomy_body_coherence
+    - attribute_binding
+    - physical_material_consistency
+    - quantity_counting

@@ -1,0 +1,29 @@
+benchmark: dpg_bench
+
+paths:
+  official_root: eval/dpg_bench/ELLA
+  output_root: data/benchmarks/dpg_bench
+
+protocol:
+  cold_start_size: 10
+  batch_size: 50
+
+official:
+  source: https://github.com/TencentQQGYLab/ELLA.git
+  revision: 3c228f1dc6c4d3cad0a47493816151a419f14db3
+
+services:
+  z_image: http://127.0.0.1:8010/
+  qwen_image: http://127.0.0.1:8009/
+  qwen_image_edit: http://127.0.0.1:8008/
+  task_signature: http://127.0.0.1:8011/v1
+
+models:
+  z_image: Z-Image-Turbo
+  qwen_image: Qwen-Image-2512
+  qwen_image_edit: Qwen-Image-Edit-2511
+  task_signature: Qwen3.5-4B
+
+evaluator:
+  command_timeout_seconds: 3600
+  device: cuda

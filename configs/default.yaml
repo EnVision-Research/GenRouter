@@ -1,0 +1,116 @@
+# Public runtime defaults. Private connection details are loaded from the
+# ignored configs/api_config.yaml when a matching api_profile is configured.
+
+# Text model used by workflow reasoning primitives.
+llm:
+  default: kimi-k2.5
+  api_profile: kimi-k2.5
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  model: kimi-k2.5
+  api_key_env: DASHSCOPE_API_KEY
+  default_params:
+    temperature: 0.0
+    max_tokens: 2048
+    enable_thinking: false
+    timeout: 120
+    max_retries: 2
+    input_token_price: 4.0
+    output_token_price: 21.0
+
+# Local model used to extract routing signatures.
+signature_llm:
+  default: qwen3_5_4b_signature
+  backend: local_transformers
+  model: models/Qwen3.5-4B
+  api_key_env: ""
+  default_params:
+    device: auto
+    dtype: auto
+    max_new_tokens: 1024
+    enable_thinking: false
+    do_sample: false
+    input_token_price: 0.0
+    output_token_price: 0.0
+
+# Vision-language model used by verification and image-aware workflows.
+mllm:
+  default: kimi-k2.5
+  api_profile: kimi-k2.5
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  model: kimi-k2.5
+  api_key_env: DASHSCOPE_API_KEY
+  default_params:
+    temperature: 0.0
+    max_tokens: 2048
+    enable_thinking: false
+    timeout: 120
+    max_retries: 2
+    input_token_price: 4.0
+    output_token_price: 21.0
+
+# Web and image search backend.
+search:
+  default: serper_search
+  api_profile: serper_search
+  base_url: https://google.serper.dev
+  api_key_env: SERPER_API_KEY
+  default_params:
+    timeout: 30
+    max_retries: 3
+    download_images: true
+    download_dir: data/cache/genrouter_images
+
+# Image-quality scorer used by generic evaluation paths.
+scorer:
+  default: kimi-k2.5_scorer
+  api_profile: kimi-k2.5
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  model: kimi-k2.5
+  api_key_env: DASHSCOPE_API_KEY
+  default_params:
+    temperature: 0.0
+    max_tokens: 1024
+    enable_thinking: false
+    timeout: 120
+    max_retries: 2
+    input_token_price: 4.0
+    output_token_price: 21.0
+
+# Embeddings used by route-memory retrieval.
+embedding:
+  default: text_embedding_v4
+  api_profile: kimi-k2.5
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  model: text-embedding-v4
+  api_key_env: DASHSCOPE_API_KEY
+  default_params:
+    dimensions: 256
+    batch_size: 10
+    cache_path: data/prompt_embeddings.jsonl
+    timeout: 120
+    max_retries: 2
+
+# Candidate generators considered by the router.
+generator:
+  options:
+    - z_image
+    - qwen_image
+    - qwen_image_edit
+
+# Utility coefficients for route selection.
+routing:
+  lambda_c: 1.0
+  lambda_l: 0.0001
+  signature_similarity_weight: 0.7
+
+# Runtime state and artifact locations, relative to the repository root.
+paths:
+  experience_bank: data/experience_bank.jsonl
+  route_memory: data/route_memory.jsonl
+  logs: data/runs
+
+# Registry files loaded alongside this global configuration.
+configs:
+  workflows: configs/workflows.yaml
+  generators: configs/generators.yaml
+  skills: configs/skills.yaml

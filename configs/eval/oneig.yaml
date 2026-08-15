@@ -1,0 +1,38 @@
+benchmark: oneig
+
+paths:
+  official_root: eval/oneig/OneIG-Benchmark
+  output_root: data/benchmarks/oneig
+
+protocol:
+  cold_start_size: 10
+  batch_size: 50
+
+official:
+  source: https://github.com/OneIG-Bench/OneIG-Benchmark.git
+  revision: 41b49831e79e6dde5323618c164da1c4cf0f699d
+
+services:
+  z_image: http://127.0.0.1:8010/
+  qwen_image: http://127.0.0.1:8009/
+  qwen_image_edit: http://127.0.0.1:8008/
+  task_signature: http://127.0.0.1:8011/v1
+
+models:
+  z_image: Z-Image-Turbo
+  qwen_image: Qwen-Image-2512
+  qwen_image_edit: Qwen-Image-Edit-2511
+  task_signature: Qwen3.5-4B
+
+evaluator:
+  command_prefix:
+    - conda
+    - run
+    - --no-capture-output
+    - -n
+    - genrouter-oneig
+    - python
+  command_timeout_seconds: 3600
+  language: en
+  model_name: genrouter
+  image_grid: 1,1

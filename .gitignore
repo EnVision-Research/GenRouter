@@ -1,0 +1,36 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.worktrees/
+
+# Local credentials.
+/configs/api_config.yaml
+/configs/api_keys.env
+/api_keys.env
+/.env
+
+# Generated runtime state and benchmark outputs.
+/data/
+!/data/
+/data/*
+!/data/.gitkeep
+
+# Local model and checkpoint trees.
+/models/
+!/models/
+/models/*
+!/models/.gitkeep
+/checkpoints/
+
+# Pinned official benchmark checkouts; clone them manually per adjacent README.
+/eval/dpg_bench/ELLA/
+/eval/oneig/OneIG-Benchmark/
+/eval/wise/wise/
+/eval/textbench/X-Omni/
+/eval/geneval2/GenEval2/
+/eval/artimuse/ArtiMuse/
+/eval/spatialgeneval/SpatialGenEval/
+
+# OS
+.DS_Store

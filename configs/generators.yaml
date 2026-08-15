@@ -1,0 +1,144 @@
+# Generator registry. Each top-level key is a CLI-visible generator name.
+
+# Remote ModelScope text-to-image generators. Their private API connection is
+# resolved through the shared modelscope_image profile in api_config.yaml.
+qwen_image:
+  enabled: true
+  provider: modelscope
+  api_profile: modelscope_image
+  base_url: https://api-inference.modelscope.cn/
+  model: Qwen/Qwen-Image-2512
+  api_key_env: MODELSCOPE_API_KEY
+  generation_modes: [text2image]
+  cost_per_call: 0
+  default_params:
+    size: 1328x1328
+    n: 1
+    steps: 50
+    guidance: 4.0
+    reference_mode: prompt
+    async_mode: true
+    timeout: 600
+    max_retries: 2
+    poll_interval: 5.0
+    max_polls: 120
+  tags: [text_to_image]
+
+z_image:
+  enabled: true
+  provider: modelscope
+  api_profile: modelscope_image
+  base_url: https://api-inference.modelscope.cn/
+  model: Tongyi-MAI/Z-Image-Turbo
+  api_key_env: MODELSCOPE_API_KEY
+  generation_modes: [text2image]
+  cost_per_call: 0
+  default_params:
+    size: 1024x1024
+    n: 1
+    steps: 9
+    reference_mode: prompt
+    async_mode: true
+    timeout: 600
+    max_retries: 2
+    poll_interval: 5.0
+    max_polls: 120
+  tags: [text_to_image]
+
+# Remote ModelScope image-edit generator.
+qwen_image_edit:
+  enabled: true
+  provider: modelscope
+  api_profile: modelscope_image
+  base_url: https://api-inference.modelscope.cn/
+  model: Qwen/Qwen-Image-Edit-2511
+  api_key_env: MODELSCOPE_API_KEY
+  generation_modes: [image2image]
+  cost_per_call: 0
+  default_params:
+    size: 1024x1024
+    n: 1
+    steps: 40
+    guidance: 4.0
+    reference_mode: image
+    max_reference_size: 2048
+    async_mode: true
+    timeout: 600
+    max_retries: 2
+    poll_interval: 5.0
+    max_polls: 120
+  tags: [image_edit]
+
+# Local synchronous generator services. The model value is the API identity;
+# bundled service scripts load checkpoints from the ignored models/ directory.
+qwen_image_local:
+  enabled: true
+  provider: modelscope
+  base_url: http://127.0.0.1:8009/
+  model: Qwen-Image-2512
+  generation_modes: [text2image]
+  cost_per_call: 0
+  default_params:
+    reference_mode: prompt
+    size: 1536x1024
+    async_mode: false
+    timeout: 600
+    max_retries: 1
+  tags: [text_to_image]
+
+z_image_local:
+  enabled: true
+  provider: modelscope
+  base_url: http://127.0.0.1:8010/
+  model: Z-Image-Turbo
+  generation_modes: [text2image]
+  cost_per_call: 0
+  default_params:
+    reference_mode: prompt
+    async_mode: false
+    timeout: 600
+    max_retries: 1
+  tags: [text_to_image]
+
+qwen_image_edit_local:
+  enabled: true
+  provider: modelscope
+  base_url: http://127.0.0.1:8008/
+  model: Qwen-Image-Edit-2511
+  generation_modes: [image2image]
+  cost_per_call: 0
+  default_params:
+    reference_mode: image
+    async_mode: false
+    timeout: 600
+    max_retries: 1
+  tags: [image_edit]
+
+# Shared proxy service that switches between Qwen generation modes.
+qwen_image_switch:
+  enabled: true
+  provider: modelscope
+  base_url: http://127.0.0.1:8260/
+  model: Qwen-Image-2512
+  generation_modes: [text2image]
+  cost_per_call: 0
+  default_params:
+    reference_mode: prompt
+    async_mode: false
+    timeout: 600
+    max_retries: 1
+  tags: [text_to_image]
+
+qwen_image_edit_switch:
+  enabled: true
+  provider: modelscope
+  base_url: http://127.0.0.1:8260/
+  model: Qwen-Image-Edit-2511
+  generation_modes: [image2image]
+  cost_per_call: 0
+  default_params:
+    reference_mode: image
+    async_mode: false
+    timeout: 600
+    max_retries: 1
+  tags: [image_edit]

@@ -1,0 +1,31 @@
+benchmark: textbench
+
+paths:
+  official_root: eval/textbench/X-Omni
+  output_root: data/benchmarks/textbench
+
+protocol:
+  cold_start_size: 10
+  batch_size: 50
+
+official:
+  source: https://github.com/X-Omni-Team/X-Omni.git
+  revision: 2b8237bb3789638c290eeda3e83ed81bd3652c3b
+
+services:
+  z_image: http://127.0.0.1:8010/
+  qwen_image: http://127.0.0.1:8009/
+  qwen_image_edit: http://127.0.0.1:8008/
+  task_signature: http://127.0.0.1:8011/v1
+
+models:
+  z_image: Z-Image-Turbo
+  qwen_image: Qwen-Image-2512
+  qwen_image_edit: Qwen-Image-Edit-2511
+  task_signature: Qwen3.5-4B
+
+evaluator:
+  command_timeout_seconds: 3600
+  language: en
+  repeats: 4
+  nproc_per_node: 1

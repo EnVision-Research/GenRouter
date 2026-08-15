@@ -1,0 +1,47 @@
+# Workflow registry. required_generation_mode participates in generator
+# compatibility filtering; the remaining values are execution defaults.
+
+DirectGen:
+  enabled: true
+  required_generation_mode: text2image
+
+RewriteGen:
+  enabled: true
+  required_generation_mode: text2image
+
+SearchGen:
+  enabled: true
+  required_generation_mode: text2image
+  search_top_k: 2
+
+RefGen:
+  enabled: true
+  required_generation_mode: image2image
+  image_top_k: 2
+
+ReasonGen:
+  enabled: true
+  required_generation_mode: text2image
+
+SkillGen:
+  enabled: true
+  required_generation_mode: text2image
+
+CodeSketchGen:
+  enabled: true
+  required_generation_mode: image2image
+  sketch_type: auto
+  canvas_width: 1024
+  canvas_height: 1024
+  max_repair_attempts: 3
+
+VerifyRefine:
+  enabled: true
+  required_generation_mode: text2image
+  max_iter: 2
+
+HybridGen:
+  enabled: true
+  search_top_k: 2
+  image_top_k: 2
+  max_iter: 2

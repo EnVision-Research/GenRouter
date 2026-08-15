@@ -1,0 +1,38 @@
+benchmark: spatialgeneval
+
+paths:
+  official_root: eval/spatialgeneval/SpatialGenEval
+  output_root: data/benchmarks/spatialgeneval
+
+protocol:
+  cold_start_size: 10
+  batch_size: 50
+
+official:
+  source: https://github.com/AMAP-ML/SpatialGenEval.git
+  revision: 8b294b5fd0bca204fcfbf2cd74b75d9c359e40f6
+
+services:
+  z_image: http://127.0.0.1:8010/
+  qwen_image: http://127.0.0.1:8009/
+  qwen_image_edit: http://127.0.0.1:8008/
+  task_signature: http://127.0.0.1:8011/v1
+  judge:
+    base_url: http://127.0.0.1:8001/v1
+    model: Qwen2.5-VL-72B-Instruct
+
+models:
+  z_image: Z-Image-Turbo
+  qwen_image: Qwen-Image-2512
+  qwen_image_edit: Qwen-Image-Edit-2511
+  task_signature: Qwen3.5-4B
+  judge: Qwen2.5-VL-72B-Instruct
+
+evaluator:
+  python: python
+  rollout: 5
+  count: 4
+  temperature: 1.0
+  max_workers: 50
+  command_timeout_seconds: 3600
+  device: cuda

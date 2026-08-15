@@ -1,0 +1,33 @@
+benchmark: geneval2
+
+paths:
+  official_root: eval/geneval2/GenEval2
+  output_root: data/benchmarks/geneval2
+
+protocol:
+  cold_start_size: 10
+  batch_size: 50
+
+official:
+  source: https://github.com/facebookresearch/GenEval2.git
+  revision: a6e82d2289e8d418f27f0adee77908b07060eea3
+
+services:
+  z_image: http://127.0.0.1:8010/
+  qwen_image: http://127.0.0.1:8009/
+  qwen_image_edit: http://127.0.0.1:8008/
+  task_signature: http://127.0.0.1:8011/v1
+
+models:
+  z_image: Z-Image-Turbo
+  qwen_image: Qwen-Image-2512
+  qwen_image_edit: Qwen-Image-Edit-2511
+  task_signature: Qwen3.5-4B
+  judge: Qwen/Qwen3-VL-8B-Instruct
+
+evaluator:
+  python: python
+  method: soft_tifa_gm
+  hf_home: models/huggingface
+  command_timeout_seconds: 3600
+  device: cuda

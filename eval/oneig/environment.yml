@@ -1,0 +1,33 @@
+# Official OneIG-Bench evaluator model stack.
+# Create from the repository root with:
+#   conda env create --file eval/oneig/environment.yml
+
+name: genrouter-oneig
+
+channels:
+  - defaults
+
+dependencies:
+  # The pinned upstream evaluator and FlashAttention wheel target Python 3.10.
+  - python=3.10
+  - pip
+
+  - pip:
+      - torch==2.6.0
+      - torchvision==0.21.0
+      - transformers==4.50.0
+      - triton==3.2.0
+      - flash-attn @ https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.3/flash_attn-2.7.3+cu11torch2.6cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
+      - accelerate==1.4.0
+      - peft==0.17.1
+      - dreamsim
+      - openai-clip
+      - qwen-vl-utils
+      - numpy
+      - pandas
+      - megfile
+      - packaging
+      - Pillow
+      - rich
+      - sentencepiece
+      - tqdm

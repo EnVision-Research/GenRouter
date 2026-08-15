@@ -1,0 +1,30 @@
+# API connection profiles used by the public runtime configuration.
+# Copy this file to configs/api_config.yaml and replace every placeholder.
+# The local file is ignored by Git and must never be committed.
+
+models:
+  # OpenAI-compatible chat, vision, scoring, and embedding APIs.
+  kimi-k2.5:
+    api_type: openai
+    base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    api_key: <your-dashscope-api-key>
+
+  # Shared ModelScope connection for the configured remote image models.
+  modelscope_image:
+    api_type: modelscope
+    base_url: https://api-inference.modelscope.cn/
+    api_key: <your-modelscope-api-key>
+
+services:
+  # Web and image search.
+  serper_search:
+    api_type: serper
+    base_url: https://google.serper.dev
+    api_key: <your-serper-api-key>
+
+  # Optional token for model downloads and Hub operations.
+  huggingface:
+    api_type: token
+    base_url: https://huggingface.co
+    api_key: <your-huggingface-token>
+    api_key_env: HF_TOKEN

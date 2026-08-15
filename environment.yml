@@ -1,0 +1,47 @@
+# Portable GenRouter development and evaluation environment.
+# Create it with: conda env create --file environment.yml
+# Update it with: conda env update --file environment.yml
+
+name: genrouter
+
+channels:
+  - defaults
+
+dependencies:
+  # Keep the Python minor version stable while allowing Conda to select
+  # platform-compatible system libraries.
+  - python=3.11
+  - pip
+
+  - pip:
+      # Core routing runtime.
+      - PyYAML==6.0.3
+      - requests==2.34.2
+      - Pillow==12.2.0
+
+      # Local HTTP model services.
+      - fastapi==0.137.1
+      - httpx==0.28.1
+      - uvicorn==0.49.0
+
+      # Local image, multimodal, and evaluation models. CUDA libraries are
+      # resolved by the PyTorch wheel instead of being tied to one machine.
+      - torch==2.7.1
+      - torchvision==0.22.1
+      - accelerate==1.14.0
+      - diffusers==0.38.0
+      - transformers==5.9.0
+      - safetensors==0.8.0
+      - sentencepiece==0.2.1
+
+      # Benchmark utilities used by DPG-Bench and TextBench.
+      # The same stack supports GenEval2, ArtiMuse, and SpatialGenEval.
+      - numpy==2.4.4
+      - pandas==3.0.3
+      - modelscope==1.37.1
+      - qwen-vl-utils==0.0.14
+      - tqdm==4.68.3
+
+      # OneIG-Bench and the WISE local judge use isolated environments because
+      # their evaluator model stacks conflict with the main runtime.
+      # CUDA-specific ArtiMuse FlashAttention setup remains external.

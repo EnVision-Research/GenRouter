@@ -1,0 +1,23 @@
+# WISE local judge server.
+# Generation and routing use the root GenRouter environment; only the vLLM
+# judge is isolated here because its CUDA and server dependencies conflict.
+# Create from the repository root with:
+#   conda env create --file eval/wise/environment.yml
+
+name: genrouter-wise
+
+channels:
+  - defaults
+
+dependencies:
+  - python=3.11
+  - pip
+
+  - pip:
+      # WISE evaluator client and image payload handling.
+      - requests==2.34.2
+      - Pillow==12.2.0
+
+      # WISE local judge server. Keep vLLM isolated because its FastAPI,
+      # PyTorch, and CUDA constraints differ from the main GenRouter runtime.
+      - vllm==0.23.0
