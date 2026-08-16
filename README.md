@@ -1,7 +1,7 @@
 <h2 align="center"> GenRouter: Unified Workflow Routing for Agentic Image Generation</h2>
 <div align="center">
 
-_**[Harold H. Chen](https://haroldchen19.github.io/)<sup>1,2*</sup>, [Zhiyu Hou](https://github.com/KevinHuge)<sup>1,3*</sup>,<br>[Wen-Jie Shu](https://wenjieshu.github.io/)<sup>4</sup>, [Weilin Ruan](https://rwlinno.github.io/)<sup>5</sup>, [Yingjie Xu](https://scholar.google.com/citations?user=TyoprpUAAAAJ&hl)<sup>1</sup>, [Litao Guo](https://scholar.google.com/citations?user=efdm760AAAAJ&hl)<sup>1</sup>, [Ying-Cong Chen](https://www.yingcong.me/)<sup>1,2†</sup>**_
+_**[Harold H. Chen](https://haroldchen19.github.io/)<sup>1,2*</sup>, [Zhiyu Hou](https://kevinhuge.github.io/)<sup>1,3*</sup>,<br>[Wen-Jie Shu](https://wenjieshu.github.io/)<sup>4</sup>, [Weilin Ruan](https://rwlinno.github.io/)<sup>5</sup>, [Yingjie Xu](https://scholar.google.com/citations?user=TyoprpUAAAAJ&hl)<sup>1</sup>, [Litao Guo](https://scholar.google.com/citations?user=efdm760AAAAJ&hl)<sup>1</sup>, [Ying-Cong Chen](https://www.yingcong.me/)<sup>1,2†</sup>**_
 <br><br>
 <sup>*</sup>Equal Contribution; <sup>†</sup>Corresponding Author
 <br>
