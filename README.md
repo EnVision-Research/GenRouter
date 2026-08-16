@@ -41,18 +41,6 @@ While agentic image generation has achieved remarkable capabilities, existing sy
 By adaptively routing each prompt to its optimal agentic configuration, our framework effectively handles highly intricate requests, such as multi-step spatial reasoning and precise text rendering, without the prohibitive latency of heavy static pipelines. 
 
 
-## 🗒️ Layout
-
-```text
-.
-|-- src/genrouter/       # Routing, workflows, backends, memory, and logging
-|-- configs/            # Runtime, generator, workflow, and evaluation configs
-|-- scripts/services/   # Local image and language model services
-|-- eval/               # Shared benchmark runner and official adapters
-|-- data/               # Ignored run artifacts; only .gitkeep is tracked
-`-- models/             # Ignored local checkpoints; only .gitkeep is tracked
-```
-
 ## 🚀 Installation
 
 ```bash
