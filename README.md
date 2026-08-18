@@ -9,7 +9,7 @@ _**[Harold H. Chen](https://haroldchen19.github.io/)<sup>1,2*</sup>, [Zhiyu Hou]
 
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update.  </h2>
 
- <a href='https://arxiv.org/abs/2602.02227'><img src='https://img.shields.io/badge/arXiv-xxxx.xxxxxx-b31b1b.svg'></a>
+ <a href='https://arxiv.org/abs/2608.16721'><img src='https://img.shields.io/badge/arXiv-2608.16721-b31b1b.svg'></a>
 <br>
 
 </div>
@@ -167,7 +167,7 @@ Please consider citing our paper if you find GenCanvas & GenRouter are useful:
 @article{chen2026genrouter,
   title={GenRouter: Unified Workflow Routing for Agentic Image Generation},
   author={Chen, Harold Haodong and Hou, Zhiyu and Shu, Wen-Jie and Ruan, Weilin and Xu, Yingjie and Guo, Litao and Chen, Ying-Cong},
-  journal={arXiv preprint arXiv:TBD},
+  journal={arXiv preprint arXiv:2608.16721},
   year={2026}
 }
 ```
